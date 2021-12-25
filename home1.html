@@ -1,0 +1,190 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title> Registration Form </title>
+    <style type="text/css">
+        body {
+            background-image: url(2.jpg);
+            background-size: cover;
+        }
+    </style>
+    <script type="text/javascript">
+        function chkName() {
+            var fname = document.getElementById("first_name");
+            if (fname.value == "") {
+                alert("please enter first name");
+                fname.focus();
+                fname.select();
+                return false;
+            }
+        }
+
+        function chkmiddle() {
+            var midlle = document.getElementById("middle_initial");
+            if (midlle.value == "") {
+                alert("please enter middle_initial");
+                midlle.focus();
+                midlle.select();
+                return false;
+            }
+        }
+
+        function chklName() {
+            var lname = document.getElementById("last_name");
+            if (lname.value == "") {
+                alert("please enter last_name");
+                lname.focus();
+                lname.select();
+                return false;
+            }
+        }
+
+        function chkCity() {
+            var city = document.getElementById("city");
+            if (city.value == "") {
+                alert("please enter City");
+                city.focus();
+                city.select();
+                return false;
+            }
+        }
+
+        function chkusername() {
+            var username = document.getElementById("username");
+            if (username.value == "") {
+                alert("please enter username");
+                username.focus();
+                username.select();
+                return false;
+            }
+        }
+
+        function chkpassword() {
+            var password = document.getElementById("password");
+            if (password.value == "") {
+                alert("please enter password");
+                password.focus();
+                password.select();
+                return false;
+            }
+        }
+
+        function chkEmail() {
+            var myName = document.getElementById("email");
+            var pos = myName.value.search(
+                /[A-Za-z_0-9]+@[A-Za-z_0-9]+\.[A-Za-z]+/);
+
+            if (pos == -1) {
+                alert("Email must contain @ and .");
+                myName.focus();
+                myName.select();
+                return false;
+            } else
+                return true;
+        }
+
+        function chkPasswords() {
+            var password = document.getElementById("password");
+            var re_password = document.getElementById("re_password");
+
+            if (password.value != re_password.value) {
+                alert("The two passwords are not the same");
+                password.focus();
+                password.select();
+                return false;
+            } else
+                return true;
+        }
+
+        function chkcomment() {
+            var comment = document.getElementById("comment");
+
+            if (comment.value.length > 10) {
+                alert("it's too long your new comment is");
+                comment.value = comment.value.substring(0, 10);
+                comment.focus();
+                comment.select();
+                return false;
+            } else
+                return true;
+        }
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <table>
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" id="first_name" onmouseleave="chkName()" /></td>
+            </tr>
+            <tr>
+                <td>Middle Initial:</td>
+                <td><input type="text" id="middle_initial" required size="1" maxlength="1" onmouseleave="chkmiddle()" />
+
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" id="last_name" required onmouseleave="chklName()" /></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input type="text" id="city" required onmouseleave="chkCity()" /></td>
+            </tr>
+            <tr>
+                <td>State/Province:</td>
+                <td><select id="state">
+        <option selected="selected">Please Choose...</option>
+        <option >City 1</option>
+        <option >City 2</option>
+        <option >City 3</option>
+        </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Country:</td>
+                <td><input type="radio" name="country" value="United state" required/>United State<br/>
+                    <input type="radio" name="country" value="Canada" required/>Canada<br/>
+                    <input type="radio" name="country" value="Other" required/>Other
+                </td>
+            </tr>
+            <tr>
+                <td>Zip:</td>
+                <td><input type="text" id="Zip" minlength="5" maxlength="10" /></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" id="email" minlength="=6" onmouseleave="chkEmail()" /></td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" id="username" onmouseleave="chkusername()" /></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" id="password" required onmouseleave="chkpassword()" /></td>
+            </tr>
+            <tr>
+                <td>Repeat Password:</td>
+                <td><input type="password" id="re_password" required onmouseleave="chkPasswords()" /></td>
+            </tr>
+            <tr>
+                <td>Comment:</td>
+                <td><textarea id="comment" rows="4" cols="40" onmouseleave="chkcomment()"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="checkbox" name="agree" value="agree" />I agree to the site terms</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="reset" value="reset form" />
+                    <input type="submit" value="submit form" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
